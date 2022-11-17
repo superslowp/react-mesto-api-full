@@ -1,0 +1,10 @@
+.profile__name-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+@media screen and (max-width: 615px) {
+    .profile__name-wrapper {
+        margin-top: 26px;
+    }
+}

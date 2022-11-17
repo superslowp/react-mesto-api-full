@@ -1,0 +1,17 @@
+.login__form-button {
+    margin-top: 186px;
+    width: 358px;
+    height: 50px;
+    background-color: #fff;
+    color: #000;
+    transition: opacity 0.3s ease-in;
+}
+
+.login__form-button:hover {
+    opacity: 0.8;
+}
+
+.login__form-button:disabled {
+    cursor: not-allowed;
+    opacity: 0.85;
+}

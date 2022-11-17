@@ -1,0 +1,10 @@
+.element__link {
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+    line-height: 0;
+    width: 282px;
+    height: 282px;
+}

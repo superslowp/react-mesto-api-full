@@ -1,0 +1,10 @@
+.login__title {
+    display: block;
+    color: white;
+    margin: 0;
+    margin-bottom: 50px;
+    text-align: center;
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 29px;
+}
