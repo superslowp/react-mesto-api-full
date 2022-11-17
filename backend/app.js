@@ -25,8 +25,7 @@ const options = {
   origin: [
     'http://localhost:3000',
     'https://localhost:3000',
-    'http://mesto.slowp.students.nomoredomains.icu',
-    'https://mesto.slowp.students.nomoredomains.icu',
+    '/mesto.slowp.students.nomoredomains.\.icu$/',
   ],
   methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
   preflightContinue: false,
