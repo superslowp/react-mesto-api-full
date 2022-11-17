@@ -24,8 +24,8 @@ app.use(requestLogger);
 const whitelist = [
   'https://localhost:3000',
   'http://localhost:3000',
-  'http://slowp.students.nomoredomains.icu',
-  'https://slowp.students.nomoredomains.icu',
+  'http://mesto.slowp.students.nomoredomains.icu',
+  'https://mesto.slowp.students.nomoredomains.icu',
 ];
 
 const corsOptions = {
