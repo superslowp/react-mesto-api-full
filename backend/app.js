@@ -21,24 +21,20 @@ mongoose.connect('mongodb://localhost:27017/mestodb');
 
 app.use(requestLogger);
 
-const whitelist = [
-  'https://localhost:3000',
-  'http://localhost:3000',
-  'http://mesto.slowp.students.nomoredomains.icu',
-  'https://mesto.slowp.students.nomoredomains.icu',
-];
-
-const corsOptions = {
-  origin(origin, callback) {
-    if (whitelist.indexOf(origin) !== -1) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
+const options = {
+  origin: [
+    'http://localhost:3000',
+    'https://localhost:3000',
+    'http://mesto.slowp.students.nomoredomains.icu',
+    'https://mesto.slowp.students.nomoredomains.icu',
+  ],
+  methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
+  preflightContinue: false,
+  optionsSuccessStatus: 204,
+  allowedHeaders: ['Content-Type', 'origin', 'Authorization'],
+  credentials: true,
 };
-
-app.use(cors(corsOptions));
+app.use('*', cors(options));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
