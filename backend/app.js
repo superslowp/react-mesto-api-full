@@ -2,7 +2,7 @@ const express = require('express');
 const cookieParser = require('cookie-parser');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const cors = require('cors');
+const cors = require('./middlewares/cors');
 const { errors } = require('celebrate');
 const usersRouter = require('./routes/userRoutes');
 const cardsRouter = require('./routes/cardRoutes');
@@ -20,20 +20,6 @@ const app = express();
 mongoose.connect('mongodb://localhost:27017/mestodb');
 
 app.use(requestLogger);
-
-const options = {
-  origin: [
-    'http://localhost:3000',
-    'https://localhost:3000',
-    '/\/mesto\.slowp\.students\.nomoredomains\.icu\/./',
-  ],
-  methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
-  preflightContinue: false,
-  optionsSuccessStatus: 204,
-  allowedHeaders: ['Content-Type', 'origin', 'Authorization'],
-  credentials: true,
-};
-app.use('*', cors(options));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
