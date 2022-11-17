@@ -17,9 +17,8 @@ const NotFoundError = require('./utils/errors/NotFoundError');
 const { PORT = 3000 } = process.env;
 const app = express();
 
-mongoose.connect('mongodb://localhost:27017/mestodb');
-
 app.use(requestLogger);
+app.use(cors);
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -30,6 +29,8 @@ app.get('/crash-test', () => {
     throw new Error('Сервер сейчас упадёт');
   }, 0);
 }); 
+
+mongoose.connect('mongodb://localhost:27017/mestodb');
 
 app.post('/signup', validateRegister, createUser);
 app.post('/signin', validateLogin, login);
