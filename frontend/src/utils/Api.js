@@ -1,3 +1,5 @@
+import { BASE_URL } from "./constants";
+
 class Api {
     constructor({ baseUrl, headers }) {
         this._baseUrl = baseUrl;
@@ -78,13 +80,9 @@ class Api {
     }
 }
 
-const apiToken = "30915f24-f46c-4f5a-b85c-bd1af9f1e51a";
-const apiBaseUrl = "https://mesto.nomoreparties.co/v1/cohort-47";
-
 const api = new Api({
-    baseUrl: apiBaseUrl,
+    baseUrl: BASE_URL,
     headers: {
-        authorization: apiToken,
         'Content-Type': 'application/json'
     }
 });

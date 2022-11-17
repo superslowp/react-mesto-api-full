@@ -1,12 +1,12 @@
-export const BASE_URL = 'https://auth.nomoreparties.co';
+import { BASE_URL } from "./constants";
 
-const request = ({ url, method, token, data }) => {
+const request = ({ url, method, data }) => {
   return fetch(`${BASE_URL}${url}`, {
     method,
+    credentials: 'include',
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json',
-      ...(!!token && { 'Authorization': `Bearer ${token}` }),
     },
     ...(!!data && { body: JSON.stringify(data) }),
   }).then((res) => {
@@ -33,11 +33,10 @@ export const login = (email, password) => {
   });
 };
 
-export const getContent = (token) => {
+export const getContent = () => {
   return request({
     url: '/users/me',
     method: 'GET',
-    token,
   });
 };
 
