@@ -2,8 +2,8 @@ const allowedCors = [
     'localhost:3000',
     'http://localhost:3000',
     'https://localhost:3000',
-    'https://mesto.slowp.students.nomoredomains.icu/',
-    'http://mesto.slowp.students.nomoredomains.icu/',
+    'https://mesto.slowp.students.nomoredomains.icu',
+    'http://mesto.slowp.students.nomoredomains.icu',
   ];
   
   const DEFAULT_ALLOWED_METHODS = 'GET,HEAD,PUT,PATCH,POST,DELETE';
