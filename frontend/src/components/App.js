@@ -151,7 +151,7 @@ function App() {
   function handleRegister(email, password) {
     auth.register(email, password)
       .then(res => {
-        if (res.data._id || res.data.email) {
+        if (res._id || res.email) {
           navigate("/");
           openInfoToolTip(true);
         }
@@ -167,6 +167,7 @@ function App() {
       .then(res => {
         if (res.id) {
           setIsLoggedIn(true);
+          setEmail(res.email);
           navigate('/');
         }
       })
