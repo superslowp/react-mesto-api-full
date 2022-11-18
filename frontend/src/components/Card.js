@@ -7,7 +7,7 @@ const Card = ({ card, onCardClick, onCardLike, onCardDelete }) => {
     const currentUser = React.useContext(CurrentUserContext);
 
     // Определяем, являемся ли мы владельцем текущей карточки
-    const isOwn = card.owner._id === currentUser._id;
+    const isOwn = card.owner === currentUser._id;
 
     // Создаём переменную, которую после зададим в `className` для кнопки удаления
     const cardDeleteButtonClassName = `element__trash-button ${isOwn ? '' : 'element__trash-button_hidden'}`;
@@ -17,10 +17,7 @@ const Card = ({ card, onCardClick, onCardLike, onCardDelete }) => {
 
     // Создаём переменную, которую после зададим в `className` для кнопки лайка
     const cardLikeButtonClassName = `element__like-button ${isLiked ? 'element__like-button_active' : ''}`;
-    console.log(currentUser);
-    console.log(currentUser._id);
-    console.log(card.owner._id);
-    console.log(card.owner);
+
     function handleLikeClick(card) {
         onCardLike(card);
     }
