@@ -177,9 +177,6 @@ function App() {
   }
 
   function tokenCheck() {
-    if (!isLoggedIn) {
-      return;
-    }
     auth.getContent()
       .then((res) => {
         if (res) {
