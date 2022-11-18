@@ -164,8 +164,7 @@ function App() {
     auth.login(email, password)
       .then(res => {
         if (res.id) {
-          setIsLoggedIn(true);
-          //setEmail(email);
+          setIsLoggedIn(true);          
           navigate('/');
         }
       })
@@ -179,8 +178,7 @@ function App() {
   function tokenCheck() {
     auth.getContent()
       .then((res) => {
-        if (res) {
-          console.log(res);
+        if (res) {          
           setEmail(res.email);
           setIsLoggedIn(true);
           navigate('/');

@@ -9,8 +9,7 @@ const request = ({ url, method, data }) => {
       'Content-Type': 'application/json',
     },
     ...(!!data && { body: JSON.stringify(data) }),
-  }).then((res) => {
-    console.log(res);    
+  }).then((res) => {    
     if (res.ok) {      
       return res.json();
     }
