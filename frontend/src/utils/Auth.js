@@ -40,3 +40,9 @@ export const getContent = () => {
   });
 };
 
+export const logout = () => {
+  return request({
+    method: 'get',
+    url: '/logout',    
+  });
+};

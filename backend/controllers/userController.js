@@ -112,3 +112,10 @@ module.exports.getUserInfo = (req, res, next) => {
     })
     .catch(next);
 };
+
+module.exports.logout = (_, res, next) => {
+  res.clearCookie('jwt').send({ message: 'Вы вышли из профиля' })
+    .catch((err) => {
+      next(err);
+    });
+};

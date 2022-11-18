@@ -141,10 +141,11 @@ function App() {
   }
 
   function handleLogout() {
-    localStorage.removeItem('jwt');
-    setEmail('');
-    setIsLoggedIn(false);
-    navigate('/');
+    auth.logout().then(() => {
+      setEmail('')
+      setIsLoggedIn(false)
+      navigate('/')
+    })
   }
 
   function handleRegister(email, password) {
@@ -165,7 +166,7 @@ function App() {
     auth.login(email, password)
       .then(res => {
         if (res.id) {
-          setIsLoggedIn(true);          
+          setIsLoggedIn(true);
           navigate('/');
         }
       })
@@ -179,7 +180,7 @@ function App() {
   function tokenCheck() {
     auth.getContent()
       .then((res) => {
-        if (res) {          
+        if (res) {
           setEmail(res.email);
           setIsLoggedIn(true);
           navigate('/');

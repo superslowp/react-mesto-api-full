@@ -6,7 +6,7 @@ const { cors } = require('./middlewares/cors');
 const { errors } = require('celebrate');
 const usersRouter = require('./routes/userRoutes');
 const cardsRouter = require('./routes/cardRoutes');
-const { createUser, login } = require('./controllers/userController');
+const { createUser, login, logout } = require('./controllers/userController');
 const errorsHandler = require('./utils/errorHandler');
 const { validateLogin, validateRegister } = require('./utils/validators/userValidator');
 const auth = require('./middlewares/auth');
@@ -37,6 +37,8 @@ app.post('/signin', validateLogin, login);
 
 app.use('/users', auth, usersRouter);
 app.use('/cards', auth, cardsRouter);
+
+app.get('/logout', logout);
 
 app.use('*', () => {
   throw new NotFoundError('Неправильный URL');
