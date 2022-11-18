@@ -180,6 +180,7 @@ function App() {
     auth.getContent()
       .then((res) => {
         if (res) {
+          console.log(res);
           setEmail(res.data.email);
           setIsLoggedIn(true);
           navigate('/');
