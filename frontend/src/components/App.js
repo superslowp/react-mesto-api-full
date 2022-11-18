@@ -100,6 +100,7 @@ function App() {
     api.submitCard(card, link)
       .then((newCards) => {
         setCards([newCards, ...cards]);
+        console.log(newCards);
         closeAllPopups();
       })
       .catch((err) => {
