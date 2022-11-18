@@ -10,8 +10,9 @@ const request = ({ url, method, data }) => {
     },
     ...(!!data && { body: JSON.stringify(data) }),
   }).then((res) => {
-    console.log(res);
+    console.log(res);    
     if (res.ok) {
+      console.log(res.json());
       return res.json();
     }
     return Promise.reject(res.status);
