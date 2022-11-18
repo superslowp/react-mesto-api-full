@@ -12,10 +12,7 @@ module.exports.getCards = (req, res, next) => {
 module.exports.addCard = (req, res, next) => {
   const { name, link } = req.body;
   cardModel.create({ name, link, owner: req.user._id })
-    .then((card) => res.send({
-      _id: card._id,
-      message: 'Карточка успешно добавлена',
-    }))
+    .then((card) => res.send(card))
     .catch(next);
 };
 
