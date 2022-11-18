@@ -181,7 +181,7 @@ function App() {
       .then((res) => {
         if (res) {
           console.log(res);
-          setEmail(res.data.email);
+          setEmail(res.email);
           setIsLoggedIn(true);
           navigate('/');
         }
