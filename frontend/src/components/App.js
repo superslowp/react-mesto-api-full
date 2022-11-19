@@ -152,6 +152,7 @@ function App() {
     auth.register(email, password)
       .then(res => {
         console.log(res);
+        console.log(res._id || res.email);
         if (res._id || res.email) {
           navigate("/");
           openInfoToolTip(true);
