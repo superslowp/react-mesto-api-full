@@ -164,13 +164,7 @@ function App() {
 
   function handleLogin(email, password) {
     auth.login(email, password)
-      .then(res => {
-        if (res.id) {
-          setIsLoggedIn(true);
-          setEmail(res.email);
-          navigate('/');
-        }
-      })
+      .then(() => tokenCheck())
       .catch(err => {
         console.log(err);
         setIsLoggedIn(false);
