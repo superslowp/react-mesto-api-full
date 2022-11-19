@@ -151,12 +151,9 @@ function App() {
   function handleRegister(email, password) {
     auth.register(email, password)
       .then(res => {
-        console.log(res);
-        console.log(res._id || res.email);
-        if (res._id || res.email) {
+        if (res.user._id || res.user.email) {
           navigate("/");
-          openInfoToolTip(true);
-          console.log(res._id || res.email);
+          openInfoToolTip(true);        
         }
       })
       .catch(err => {
