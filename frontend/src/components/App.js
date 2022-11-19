@@ -156,6 +156,7 @@ function App() {
         if (res._id || res.email) {
           navigate("/");
           openInfoToolTip(true);
+          console.log(res._id || res.email);
         }
       })
       .catch(err => {
